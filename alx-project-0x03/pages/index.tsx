@@ -1,12 +1,9 @@
-import Button from "@/components/common/Button";
 import { useRouter } from "next/router";
-
-interface PageRouteProps {
-  pageRoute: string;
-}
+import Button from "@/components/common/Button";
+import { PageRouteProps } from "@/interface";
 
 export default function Home() {
-  const router = useRouter(); // ✅ Now matches the required string
+  const router = useRouter(); // ✅ Required useRouter instance
 
   // Imperative routing with useRouter
   const routeToNextPage = ({ pageRoute }: PageRouteProps) => {
@@ -27,19 +24,22 @@ export default function Home() {
       {/* Navigation Options */}
       <div className="flex gap-6">
         <Button
-          action={() => routeToNextPage({ pageRoute: "/generate-text-ai" })}
-          buttonLabel="Generate Text"
-          buttonBackgroundColor="blue"
+          label="Generate Text"
+          color="blue"
+          size="md"
+          onClick={() => routeToNextPage({ pageRoute: "/generate-text-ai" })}
         />
         <Button
-          action={() => routeToNextPage({ pageRoute: "/text-to-image" })}
-          buttonLabel="Text to Image"
-          buttonBackgroundColor="green"
+          label="Text to Image"
+          color="green"
+          size="md"
+          onClick={() => routeToNextPage({ pageRoute: "/text-to-image" })}
         />
         <Button
-          action={() => routeToNextPage({ pageRoute: "/counter-app" })}
-          buttonLabel="Contact us"
-          buttonBackgroundColor="orange"
+          label="Contact Us"
+          color="orange"
+          size="md"
+          onClick={() => routeToNextPage({ pageRoute: "/counter-app" })}
         />
       </div>
     </div>
